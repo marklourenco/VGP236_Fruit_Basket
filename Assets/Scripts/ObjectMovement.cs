@@ -6,19 +6,26 @@ public class ObjectMovement : MonoBehaviour
 
     private Vector3 desiredSpeed = Vector3.zero;
 
-    private float speed = SpawnManager.Instance.GetSpeed();
+    private float speed = 0.0f;
 
     private float randomRotation = 0.0f;
 
     private float randomMove = 0.0f;
-    private float timeSinceLastMovement = 0.0f;
-    private float moveInterval = 1.0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         randomRotation = Random.Range(-6, 6);
         randomMove = Random.Range((float)-0.025, (float)0.025);
+
+        if (SpawnManager.Instance != null)
+        {
+            speed = SpawnManager.Instance.GetSpeed();
+        }
+        else
+        {
+            Debug.LogError("SpawnManager instance is not initialized.");
+        }
 
         //while()
 

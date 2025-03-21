@@ -8,7 +8,7 @@ public class AdsManager : MonoBehaviour , IUnityAdsInitializationListener
     [SerializeField]
     private bool testMode = true;
 
-    private bool isInitialized = false;
+    // private bool isInitialized = false;
     
     void Start()
     {
